@@ -1,3 +1,7 @@
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
+app_api_section:
+    resource: '@AppBundle/Controller/SectionController.php'
+    type: rest
+    prefix: /api
