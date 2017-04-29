@@ -107,4 +107,15 @@ class TaskController extends FOSRestController
         $data = json_decode($request->getContent(), true);
         $form->submit($data);
     }
+
+    public function completeTaskAction(Task $task)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $task->changeStateTask();
+
+        $em->persist($task);
+        $em->flush();
+
+        return $task;
+    }
 }

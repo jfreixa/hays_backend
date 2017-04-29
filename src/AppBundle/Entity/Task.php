@@ -161,4 +161,9 @@ class Task
     {
         return $this->createdAt;
     }
+
+    public function changeStateTask()
+    {
+        $this->state = !$this->state;
+    }
 }

@@ -8,6 +8,7 @@ use FOS\RestBundle\Controller\Annotations\Delete;
 use FOS\RestBundle\Controller\Annotations\Get;
 use FOS\RestBundle\Controller\Annotations\Post;
 use FOS\RestBundle\Controller\Annotations\Put;
+use FOS\RestBundle\Controller\Annotations\View;
 use FOS\RestBundle\Controller\FOSRestController;
 use Symfony\Component\Form\Form;
 use Symfony\Component\HttpFoundation\Request;
@@ -28,6 +29,7 @@ class SectionController extends FOSRestController
     /**
      * @param Section $section
      * @return Section
+     *
      * @Get("/sections/{id}")
      */
     public function getSectionAction(Section $section)

@@ -31,7 +31,7 @@ class Section
     /**
      * @var Task
      *
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Task", mappedBy="section")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Task", mappedBy="section", cascade={"remove"})
      */
     private $tasks;
 
