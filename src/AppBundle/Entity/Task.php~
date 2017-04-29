@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 /**
  * Task
@@ -36,12 +37,24 @@ class Task
     private $state = false;
 
     /**
+     * @var DateTime
+     *
+     * @ORM\Column(name="createdAt", type="datetime")
+     */
+    private $createdAt;
+
+    /**
      * @var Section
      *
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Section", inversedBy="tasks")
      */
     private $section;
 
+
+    public function __construct()
+    {
+        $this->createdAt = new \DateTime('now');
+    }
 
     /**
      * Get id
@@ -100,5 +113,28 @@ class Task
     {
         return $this->state;
     }
-}
 
+    /**
+     * Set section
+     *
+     * @param \AppBundle\Entity\Section $section
+     *
+     * @return Task
+     */
+    public function setSection(\AppBundle\Entity\Section $section = null)
+    {
+        $this->section = $section;
+
+        return $this;
+    }
+
+    /**
+     * Get section
+     *
+     * @return \AppBundle\Entity\Section
+     */
+    public function getSection()
+    {
+        return $this->section;
+    }
+}
