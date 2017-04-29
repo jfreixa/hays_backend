@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Controller;
+namespace AppBundle\Controller\api;
 
 use AppBundle\Entity\Section;
 use AppBundle\Form\SectionType;
@@ -19,7 +19,7 @@ class SectionController extends FOSRestController
      *
      * @Get("/sections")
      */
-    public function getSectionsAction()
+    public function getAllSectionsAction()
     {
         return $this->getDoctrine()->getRepository('AppBundle:Section')->findAll();
 

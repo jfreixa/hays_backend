@@ -2,6 +2,10 @@ app:
     resource: '@AppBundle/Controller/'
     type: annotation
 app_api_section:
-    resource: '@AppBundle/Controller/SectionController.php'
+    resource: '@AppBundle/Controller/api/SectionController.php'
+    type: rest
+    prefix: /api
+app_api_task:
+    resource: '@AppBundle/Controller/api/TaskController.php'
     type: rest
     prefix: /api
