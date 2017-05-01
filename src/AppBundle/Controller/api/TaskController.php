@@ -6,6 +6,7 @@ use AppBundle\Entity\Task;
 use AppBundle\Form\TaskType;
 use FOS\RestBundle\Controller\Annotations\Delete;
 use FOS\RestBundle\Controller\Annotations\Get;
+use FOS\RestBundle\Controller\Annotations\Patch;
 use FOS\RestBundle\Controller\Annotations\Post;
 use FOS\RestBundle\Controller\Annotations\Put;
 use FOS\RestBundle\Controller\FOSRestController;
@@ -108,6 +109,12 @@ class TaskController extends FOSRestController
         $form->submit($data);
     }
 
+    /**
+     * @param Task $task
+     * @return Task
+     *
+     * @Patch("/tasks/{id}")
+     */
     public function completeTaskAction(Task $task)
     {
         $em = $this->getDoctrine()->getManager();
